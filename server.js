@@ -15,7 +15,7 @@ app.get("/", function(req, res){
 app.post('/addName', (req, res) => {
     const name = req.body.name;
     const age = req.body.age;
-    console.log('Received data:', name , age );
+    console.log('Received data fr:', name , age );
     res.redirect('/');
  });
 
