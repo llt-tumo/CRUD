@@ -1,4 +1,4 @@
-var express = require("express");
+/* var express = require("express");
 var path = require("path");
 const bodyParser = require('body-parser');
 var app = express();
@@ -21,4 +21,40 @@ app.post('/addName', (req, res) => {
 
 app.listen(3000, function(){
    console.log("Example is running on port 3000");
+});
+
+*/
+
+const { ObjectId } = require("mongodb");
+const mongoose = require("mongoose");
+
+const personSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+});
+
+const Person = mongoose.model("Person", personSchema);
+
+const connectionString =
+  "mongodb+srv://lilitmkhitaryany:exokai777@crud.06yxiub.mongodb.net/sample_mflix";
+
+mongoose.connect(connectionString);
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "Connection error:"));
+db.once("open", async () => {
+  console.log("Connected to MongoDB!");
+
+  try {
+    const allMovies = await mongoose.connection.db
+      .collection("movies")
+      .find()
+      .toArray();
+
+    console.log("Retrieved data:", allMovies);
+  } catch (error) {
+    console.error("Error retrieving data:", error);
+  } finally {
+    mongoose.connection.close();
+  }
 });
