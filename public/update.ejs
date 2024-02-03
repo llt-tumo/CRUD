@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <h1>UPDATE</h1>
+      <div class="form">
+        <form action="/updateData" method="post">
+          <input
+            id="PrName"
+            type="text"
+            required
+            name="name"
+            placeholder="Name"
+            value="<%= obj.name %>"
+          />
+          <input
+            id="PrPrice"
+            type="number"
+            name="price"
+            placeholder="Price"
+            value="<%= obj.price %>"
+          />
+          <input
+            id="PrImage"
+            type="text"
+            name="image"
+            placeholder="Image URL"
+            value="<%= obj.image %>"
+          />
+          <input
+            id="PrDes"
+            type="text"
+            name="description"
+            placeholder="Description"
+            value="<%= obj.description %>"
+          />
+          <input
+            id="PrUUID"
+            type="number"
+            name="uuid"
+            placeholder="UUID"
+            value="<%= obj.uuid %>"
+          />
+          <input id="id" type="hidden" name="id" value="<%= obj._id %>" />
+          <input class="submitButton" type="submit" />
+        </form>
+      </div>
+    </div>
+
+    <style>
+      body {
+        body {
+          margin: 20px;
+          padding-left: 280px;
+          padding-right: 280px;
+          padding-top: 50px;
+          box-sizing: border-box;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          font-family: Geneva, Verdana, sans-serif;
+          background: linear-gradient(
+            180deg,
+            rgb(226, 216, 217),
+            rgb(189, 197, 204)
+          );
+        }
+      }
+
+      input {
+        width: 90%;
+        border: 2px solid #0f1660;
+        outline: none;
+        background: none;
+        padding: 10px;
+        padding-left: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        font-size: 1.2em;
+        text-decoration: #0f1660;
+      }
+
+      .form {
+        width: 110%;
+        position: relative;
+        background: #fff;
+      }
+
+      .submitButton:hover {
+        background: linear-gradient(45deg, rgb(242, 85, 103), dodgerblue);
+        text-decoration: #0f1660;
+      }
+
+      h1 {
+        text-align: center;
+        font-family: Geneva, Verdana, sans-serif;
+        color: #0f1660;
+      }
+      .main {
+        background-color: white;
+        padding: 30px;
+        width: 700px;
+        border-radius: 20px;
+        box-shadow: 4px, 4px;
+      }
+    </style>
+  </body>
+</html>
